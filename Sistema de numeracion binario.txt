@@ -1,0 +1,38 @@
+# Función para cifrar (texto → binario)
+def cifrar_a_binario(texto):
+    binario = ""
+    for caracter in texto:
+        # ord() obtiene el valor ASCII y bin() lo convierte a binario
+        binario += format(ord(caracter), '08b') + " "
+    return binario.strip()
+
+
+# Función para descifrar (binario → texto)
+def descifrar_de_binario(binario):
+    texto = ""
+    lista_binarios = binario.split()
+    
+    for b in lista_binarios:
+        # int convierte de binario a entero, chr a caracter
+        texto += chr(int(b, 2))
+    return texto
+
+
+# Programa principal (secuencial)
+def main():
+    # Entrada de usuario
+    cadena = input("Ingrese una cadena de texto: ")
+
+    # Cifrado
+    resultado_binario = cifrar_a_binario(cadena)
+    print("\nTexto en binario:")
+    print(resultado_binario)
+
+    # Descifrado
+    resultado_texto = descifrar_de_binario(resultado_binario)
+    print("\nTexto descifrado:")
+    print(resultado_texto)
+
+
+# Ejecutar programa
+main()
